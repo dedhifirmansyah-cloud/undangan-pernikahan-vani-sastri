@@ -29,13 +29,15 @@ document.querySelector('.open').addEventListener('click', function() {
   document.getElementById('bgMusic').play();
 });
 </script>
-  <script>
-const params = new URLSearchParams(window.location.search);
-const nama = params.get('to');
+ <script>
+document.addEventListener('DOMContentLoaded', function() {
+  const params = new URLSearchParams(window.location.search);
+  const nama = params.get('to');
 
-if (nama) {
-  document.getElementById('namaTamu').textContent = 'Kepada Yth. ' + nama;
-}
+  if (nama) {
+    document.getElementById('namaTamu').textContent = 'Kepada Yth. ' + nama;
+  }
+});
 </script>
 <section class="intro"><div class="container"><div class="script">بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ</div><div class="eyebrow">Assalamu'alaikum Warahmatullahi Wabarakatuh</div>
   <div id="namaTamu"></div>
