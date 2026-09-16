@@ -15,7 +15,8 @@
   --blue:#6ea9ca;
   --deep:#294f68;
   --cream:#fbfaf7;
-  --ink:#26363f
+  --ink:#26363f;
+  --gold:#c9a66b
 }
 
 *{
@@ -54,6 +55,8 @@ section{
 
 .btn{
   display:inline-flex;
+  align-items:center;
+  justify-content:center;
   padding:13px 24px;
   border-radius:999px;
   text-decoration:none;
@@ -65,7 +68,7 @@ section{
 
 .primary{
   background:var(--deep);
-  color:white
+  color:#fff
 }
 
 /* COVER */
@@ -136,6 +139,13 @@ section{
   margin:auto;
   color:#60727c;
   font-size:14px
+}
+
+#namaTamu{
+  margin:18px 0;
+  font-size:18px;
+  font-weight:600;
+  color:var(--deep)
 }
 
 /* COUPLE */
@@ -290,52 +300,169 @@ section{
   break-inside:avoid
 }
 
-/* WEDDING GIFT */
+/* =========================
+   WEDDING GIFT
+========================= */
+
 .gift{
   text-align:center;
-  background:var(--cream)
+  background:
+    radial-gradient(circle at 10% 20%,rgba(110,169,202,.12),transparent 25%),
+    radial-gradient(circle at 90% 80%,rgba(201,166,107,.10),transparent 25%),
+    var(--cream);
+  position:relative;
+  overflow:hidden
 }
 
-.gift h2{
-  font-size:52px;
+.gift-title{
+  font-size:56px;
   color:var(--deep);
-  margin:10px 0 15px
+  margin:10px 0 12px
 }
 
-.gift> .container>p{
-  max-width:600px;
-  margin:0 auto 30px;
+.gift-desc{
+  max-width:650px;
+  margin:0 auto 40px;
   color:#60727c;
   font-size:14px
 }
 
+.gift-cards{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:25px;
+  max-width:900px;
+  margin:auto
+}
+
 .gift-box{
-  max-width:420px;
-  margin:18px auto;
-  padding:28px;
-  background:#fff;
-  border:1px solid #e2edf2;
-  box-shadow:0 12px 35px rgba(44,78,96,.08)
+  background:rgba(255,255,255,.96);
+  border:1px solid #dce9ef;
+  border-radius:24px;
+  padding:38px 28px;
+  box-shadow:0 18px 45px rgba(44,78,96,.10);
+  position:relative;
+  overflow:hidden
 }
 
-.gift-box h3{
-  font-size:32px;
-  color:var(--deep)
+.gift-box:before{
+  content:"";
+  position:absolute;
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  background:rgba(110,169,202,.08);
+  top:-55px;
+  right:-45px
 }
 
-.gift-box p{
-  font-size:14px;
-  margin:5px 0
+.gift-box:after{
+  content:"♡";
+  position:absolute;
+  font-family:serif;
+  font-size:38px;
+  color:rgba(201,166,107,.35);
+  bottom:8px;
+  right:18px
 }
 
-.gift-box strong{
-  font-size:20px;
-  letter-spacing:1px;
-  color:var(--deep)
+/* LOGO BRI */
+.logo-bri{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  margin-bottom:20px;
+  color:#1261a0;
+  font-size:40px;
+  font-weight:700;
+  letter-spacing:-2px
 }
 
-.gift-box .btn{
-  margin-top:15px
+.logo-bri-icon{
+  width:48px;
+  height:48px;
+  border:5px solid #1261a0;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:Arial,sans-serif;
+  font-size:27px;
+  font-weight:700
+}
+
+/* LOGO GOPAY */
+.logo-gopay{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin-bottom:20px;
+  color:#111;
+  font-family:Arial,sans-serif;
+  font-size:38px;
+  font-weight:700;
+  letter-spacing:-2px
+}
+
+.logo-gopay-icon{
+  width:48px;
+  height:48px;
+  border-radius:50%;
+  background:#00a9df;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:25px;
+  font-weight:700
+}
+
+.bank-label{
+  display:inline-block;
+  padding:6px 22px;
+  border-radius:30px;
+  background:#edf7fb;
+  color:var(--deep);
+  font-size:10px;
+  letter-spacing:3px;
+  font-weight:600;
+  margin-bottom:18px
+}
+
+.account-number{
+  display:block;
+  font-size:24px;
+  letter-spacing:1.5px;
+  color:var(--deep);
+  font-weight:600;
+  margin:8px 0
+}
+
+.account-name{
+  color:#60727c;
+  font-size:14px
+}
+
+.copy-btn{
+  margin-top:22px;
+  min-width:210px;
+  box-shadow:0 8px 20px rgba(41,79,104,.16)
+}
+
+.gift-note{
+  margin-top:45px;
+  color:#60727c;
+  font-family:"Cormorant Garamond",serif;
+  font-style:italic;
+  font-size:20px
+}
+
+.gift-heart{
+  color:var(--gold);
+  font-size:26px;
+  margin-bottom:8px
 }
 
 /* RSVP */
@@ -405,8 +532,10 @@ body.unlocked{
 
 /* MOBILE */
 @media(max-width:700px){
+
   .couple-grid,
-  .event-grid{
+  .event-grid,
+  .gift-cards{
     grid-template-columns:1fr
   }
 
@@ -418,8 +547,16 @@ body.unlocked{
     background-position:center 30%
   }
 
-  .gift h2{
-    font-size:44px
+  .gift-title{
+    font-size:46px
+  }
+
+  .gift-box{
+    padding:32px 20px
+  }
+
+  .account-number{
+    font-size:21px
   }
 }
 </style>
@@ -429,6 +566,7 @@ body.unlocked{
 
 <header class="cover">
   <div class="cover-content">
+
     <div class="eyebrow">The Wedding of</div>
 
     <h1>
@@ -443,6 +581,7 @@ body.unlocked{
     <a class="btn primary open" href="#undangan">
       Buka Undangan ↓
     </a>
+
   </div>
 </header>
 
@@ -657,7 +796,10 @@ body.unlocked{
   </div>
 </section>
 
-<!-- WEDDING GIFT -->
+<!-- =========================
+     WEDDING GIFT
+========================= -->
+
 <section class="gift">
 
   <div class="container">
@@ -666,61 +808,81 @@ body.unlocked{
       Wedding Gift
     </div>
 
-    <h2>
+    <h2 class="gift-title">
       Kirim Hadiah
     </h2>
 
-    <p>
+    <p class="gift-desc">
       Bagi yang ingin memberikan tanda kasih kepada Vani & Sastri,
-      dapat melalui:
+      dapat melalui rekening berikut:
     </p>
 
-    <!-- BRI -->
-    <div class="gift-box">
+    <div class="gift-cards">
 
-      <h3>BRI</h3>
+      <!-- BRI -->
+      <div class="gift-box">
 
-      <p>
-        <strong id="rekeningBRI">
+        <div class="logo-bri">
+          <div class="logo-bri-icon">BRI</div>
+          BRI
+        </div>
+
+        <div class="bank-label">
+          BANK BRI
+        </div>
+
+        <span class="account-number" id="rekeningBRI">
           681401043783537
-        </strong>
-      </p>
+        </span>
 
-      <p>
-        a.n. Sastri
-      </p>
+        <div class="account-name">
+          a.n. Sastri
+        </div>
 
-      <button
-        type="button"
-        class="btn primary"
-        onclick="salinRekening('rekeningBRI')">
-        Salin Nomor Rekening
-      </button>
+        <button
+          type="button"
+          class="btn primary copy-btn"
+          onclick="salinRekening('rekeningBRI')">
+          📋 &nbsp; Salin Nomor Rekening
+        </button>
+
+      </div>
+
+      <!-- GOPAY -->
+      <div class="gift-box">
+
+        <div class="logo-gopay">
+          <div class="logo-gopay-icon">G</div>
+          gopay
+        </div>
+
+        <div class="bank-label">
+          GOPAY
+        </div>
+
+        <span class="account-number" id="rekeningGoPay">
+          085701479501
+        </span>
+
+        <div class="account-name">
+          a.n. Vani Pratama
+        </div>
+
+        <button
+          type="button"
+          class="btn primary copy-btn"
+          onclick="salinRekening('rekeningGoPay')">
+          📋 &nbsp; Salin Nomor GoPay
+        </button>
+
+      </div>
 
     </div>
 
-    <!-- GOPAY -->
-    <div class="gift-box">
-
-      <h3>GoPay</h3>
-
-      <p>
-        <strong id="rekeningGoPay">
-          085701479501
-        </strong>
-      </p>
-
-      <p>
-        a.n. Vani Pratama
-      </p>
-
-      <button
-        type="button"
-        class="btn primary"
-        onclick="salinRekening('rekeningGoPay')">
-        Salin Nomor GoPay
-      </button>
-
+    <div class="gift-note">
+      <div class="gift-heart">♡</div>
+      Terima kasih atas doa, restu, dan tanda kasih
+      yang telah diberikan.
     </div>
 
   </div>
@@ -771,8 +933,7 @@ body.unlocked{
 
         <textarea
           id="pesan"
-          placeholder="Tulis doa dan ucapan untuk Vani & Sastri...">
-        </textarea>
+          placeholder="Tulis doa dan ucapan untuk Vani & Sastri..."></textarea>
 
         <button
           class="btn primary"
@@ -790,7 +951,6 @@ body.unlocked{
 
 </main>
 
-<!-- FOOTER -->
 <footer>
 
   <h3>Vani & Sastri</h3>
@@ -809,7 +969,7 @@ body.unlocked{
 <script>
 
 /* BUKA UNDANGAN */
-document.querySelector('.open').addEventListener('click', function(){
+document.querySelector('.open').addEventListener('click',function(){
 
   document.getElementById('bgMusic').play();
 
@@ -823,8 +983,8 @@ document.querySelector('.open').addEventListener('click', function(){
 });
 
 
-/* NAMA TAMU DARI LINK */
-document.addEventListener('DOMContentLoaded', function(){
+/* NAMA TAMU */
+document.addEventListener('DOMContentLoaded',function(){
 
   const params =
     new URLSearchParams(window.location.search);
@@ -842,7 +1002,7 @@ document.addEventListener('DOMContentLoaded', function(){
 });
 
 
-/* SALIN NOMOR REKENING */
+/* SALIN REKENING */
 function salinRekening(id){
 
   const nomor =
@@ -910,7 +1070,7 @@ setInterval(countdown,1000);
 
 /* RSVP WHATSAPP */
 document.getElementById("rsvpForm")
-.addEventListener("submit", function(e){
+.addEventListener("submit",function(e){
 
   e.preventDefault();
 
